@@ -7,7 +7,7 @@ import { warn } from '../util/index'
 
 function Vue (options) {
   if (process.env.NODE_ENV !== 'production' &&
-    !(this instanceof Vue)
+    !(this instanceof Vue) // 使用 instanceof 就是判断一个实例是否属于某种类型
   ) {
     warn('Vue is a constructor and should be called with the `new` keyword')
   }
