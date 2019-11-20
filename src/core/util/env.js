@@ -3,7 +3,7 @@
 // can we use __proto__?
 export const hasProto = '__proto__' in {}
 
-// Browser environment sniffing
+// Browser environment sniffing 浏览器环境中嗅探
 export const inBrowser = typeof window !== 'undefined'
 export const inWeex = typeof WXEnvironment !== 'undefined' && !!WXEnvironment.platform
 export const weexPlatform = inWeex && WXEnvironment.platform.toLowerCase()
@@ -56,6 +56,7 @@ export const devtools = inBrowser && window.__VUE_DEVTOOLS_GLOBAL_HOOK__
 
 /* istanbul ignore next */
 export function isNative (Ctor: any): boolean {
+  // test() 方法用于检测一个字符串是否匹配某个模式.
   return typeof Ctor === 'function' && /native code/.test(Ctor.toString())
 }
 

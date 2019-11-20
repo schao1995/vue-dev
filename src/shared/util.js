@@ -108,7 +108,7 @@ export function makeMap (
   str: string,
   expectsLowerCase?: boolean
 ): (key: string) => true | void {
-  const map = Object.create(null)
+  const map = Object.create(null) // Object.create()方法创建一个新对象，使用现有的对象来提供新创建的对象的__proto__
   const list: Array<string> = str.split(',')
   for (let i = 0; i < list.length; i++) {
     map[list[i]] = true
@@ -143,7 +143,7 @@ export function remove (arr: Array<any>, item: any): Array<any> | void {
 /**
  * Check whether an object has the property. 检查对象是否具有该属性。
  */
-const hasOwnProperty = Object.prototype.hasOwnProperty
+const hasOwnProperty = Object.prototype.hasOwnProperty // hasOwnProperty() 方法会返回一个布尔值，指示对象自身属性中是否具有指定的属性（也就是，是否有指定的键）
 export function hasOwn (obj: Object | Array<*>, key: string): boolean {
   return hasOwnProperty.call(obj, key)
 }
@@ -169,6 +169,8 @@ export const camelize = cached((str: string): string => {
 
 /**
  * Capitalize a string. 利用一个字符串。
+ * toUpperCase() 方法用于把字符串转换为大写
+ * toLowerCase() 方法用于把字符串转换为小写
  */
 export const capitalize = cached((str: string): string => {
   return str.charAt(0).toUpperCase() + str.slice(1)

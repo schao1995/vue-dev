@@ -1,4 +1,5 @@
 /* not type checking this file because flow doesn't play well with Proxy */
+// 没有类型检查这个文件，因为流不能很好地发挥与代理
 
 import config from 'core/config'
 import { warn, makeMap, isNative } from '../util/index'
@@ -77,7 +78,7 @@ if (process.env.NODE_ENV !== 'production') {
 
   initProxy = function initProxy (vm) {
     if (hasProxy) {
-      // determine which proxy handler to use
+      // determine which proxy handler to use 确定使用哪个代理处理程序
       const options = vm.$options
       const handlers = options.render && options.render._withStripped
         ? getHandler

@@ -32,12 +32,12 @@ export function toggleObserving (value: boolean) {
  * Observer class that is attached to each observed
  * object. Once attached, the observer converts the target
  * object's property keys into getter/setters that
- * collect dependencies and dispatch updates.
+ * collect dependencies and dispatch updates. 附加到每个被观察对象的观察者类。一旦附加，观察者将目标对象的属性键转换为getter/setter，以收集依赖项和分派更新
  */
 export class Observer {
   value: any;
   dep: Dep;
-  vmCount: number; // number of vms that have this object as root $data
+  vmCount: number; // number of vms that have this object as root $data 将此对象作为根$data的vm的数量
 
   constructor (value: any) {
     this.value = value
@@ -59,7 +59,7 @@ export class Observer {
   /**
    * Walk through all properties and convert them into
    * getter/setters. This method should only be called when
-   * value type is Object.
+   * value type is Object. 遍历所有属性并将它们转换为getter/setter。仅当值类型为Object时才应调用此方法。
    */
   walk (obj: Object) {
     const keys = Object.keys(obj)
@@ -69,7 +69,7 @@ export class Observer {
   }
 
   /**
-   * Observe a list of Array items.
+   * Observe a list of Array items. 观察数组项的列表。
    */
   observeArray (items: Array<any>) {
     for (let i = 0, l = items.length; i < l; i++) {
@@ -105,7 +105,7 @@ function copyAugment (target: Object, src: Object, keys: Array<string>) {
 /**
  * Attempt to create an observer instance for a value,
  * returns the new observer if successfully observed,
- * or the existing observer if the value already has one.
+ * or the existing observer if the value already has one. 尝试为一个值创建一个观察者实例，如果成功观察到，则返回新的观察者，如果该值已经存在，则返回现有的观察者。
  */
 export function observe (value: any, asRootData: ?boolean): Observer | void {
   if (!isObject(value) || value instanceof VNode) {
@@ -130,7 +130,7 @@ export function observe (value: any, asRootData: ?boolean): Observer | void {
 }
 
 /**
- * Define a reactive property on an Object.
+ * Define a reactive property on an Object.在对象上定义反应性属性。
  */
 export function defineReactive (
   obj: Object,
@@ -196,7 +196,7 @@ export function defineReactive (
 /**
  * Set a property on an object. Adds the new property and
  * triggers change notification if the property doesn't
- * already exist.
+ * already exist. 设置对象的属性。添加新属性并在属性不存在时触发更改通知。
  */
 export function set (target: Array<any> | Object, key: any, val: any): any {
   if (process.env.NODE_ENV !== 'production' &&
